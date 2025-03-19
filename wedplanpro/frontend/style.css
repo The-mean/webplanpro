@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply min-h-screen bg-base-100 text-base-content;
+    }
+}
+
+@layer components {
+
+    /* Form Stilleri */
+    .form-group {
+        @apply space-y-2 mb-4;
+    }
+
+    .form-label {
+        @apply block text-sm font-medium;
+    }
+
+    .form-input {
+        @apply input input-bordered w-full;
+    }
+
+    .form-select {
+        @apply select select-bordered w-full;
+    }
+
+    .form-textarea {
+        @apply textarea textarea-bordered w-full;
+    }
+
+    .form-error {
+        @apply text-error text-sm mt-1;
+    }
+
+    /* Tablo Stilleri */
+    .table-container {
+        @apply overflow-x-auto rounded-lg shadow;
+    }
+
+    .table-wrapper {
+        @apply w-full min-w-full table-auto;
+    }
+
+    .table-header {
+        @apply bg-base-200;
+    }
+
+    .table-header th {
+        @apply px-6 py-4 text-left text-sm font-semibold whitespace-nowrap;
+    }
+
+    .table-row {
+        @apply hover:bg-base-200 transition-colors border-b border-base-200;
+    }
+
+    .table-row td {
+        @apply px-6 py-4 text-sm whitespace-nowrap;
+    }
+
+    /* Kart Stilleri */
+    .card-grid {
+        @apply grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+    }
+
+    .card-container {
+        @apply card bg-base-100 shadow-lg hover:shadow-xl transition-shadow duration-300;
+    }
+
+    .card-image {
+        @apply w-full h-48 object-cover rounded-t-2xl;
+    }
+
+    .card-header {
+        @apply p-4 border-b border-base-200;
+    }
+
+    .card-title {
+        @apply text-lg font-semibold;
+    }
+
+    .card-content {
+        @apply p-4 space-y-4;
+    }
+
+    .card-footer {
+        @apply p-4 border-t border-base-200;
+    }
+
+    /* Responsive Container */
+    .page-container {
+        @apply container mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-container {
+        @apply py-8 sm:py-12 lg:py-16;
+    }
+
+    /* Navigation */
+    .nav-container {
+        @apply sticky top-0 z-30 bg-base-100 border-b border-base-200;
+    }
+
+    .nav-content {
+        @apply navbar container mx-auto;
+    }
+
+    /* Button Groups */
+    .btn-group-responsive {
+        @apply flex flex-col xs:flex-row gap-2;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs-container {
+        @apply text-sm breadcrumbs py-4;
+    }
+
+    /* Stats */
+    .stats-container {
+        @apply stats stats-vertical lg:stats-horizontal shadow;
+    }
+
+    /* Alerts */
+    .alert-container {
+        @apply alert shadow-lg max-w-screen-xl mx-auto my-4;
+    }
+
+    /* Modal */
+    .modal-box {
+        @apply max-w-screen-sm mx-auto;
+    }
+
+    /* Tabs */
+    .tabs-container {
+        @apply tabs tabs-boxed justify-center gap-2 p-2;
+    }
+
+    /* Dropdown */
+    .dropdown-content {
+        @apply menu p-2 shadow bg-base-100 rounded-box w-52;
+    }
+
+    /* Loading States */
+    .loading-overlay {
+        @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+    }
+
+    .loading-spinner {
+        @apply loading loading-spinner loading-lg text-primary;
+    }
+}

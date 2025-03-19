@@ -1,0 +1,23 @@
+RewriteEngine On
+RewriteBase /wedplanpro/
+
+# Frontend dosyalarına doğrudan erişime izin ver
+RewriteCond %{REQUEST_URI} ^/wedplanpro/frontend/
+RewriteRule ^ - [L]
+
+# Backend API isteklerini yönlendir
+RewriteCond %{REQUEST_URI} ^/wedplanpro/backend/
+RewriteRule ^ - [L]
+
+# Diğer tüm istekleri index.html'e yönlendir
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ frontend/index.html [L]
+
+# PHP hata raporlamasını kapat
+php_flag display_errors off
+
+# Güvenlik başlıkları
+Header set X-Content-Type-Options "nosniff"
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Frame-Options "SAMEORIGIN" 

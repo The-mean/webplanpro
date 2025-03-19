@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WedPlanPro - Dashboard</title>
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="nav-container">
+        <div class="nav-content">
+            <div class="flex-1">
+                <a class="btn btn-ghost normal-case text-xl">WedPlanPro</a>
+            </div>
+            <div class="flex-none gap-2">
+                <div class="dropdown dropdown-end">
+                    <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                        <div class="w-10 rounded-full">
+                            <img src="https://ui-avatars.com/api/?name=User" />
+                        </div>
+                    </label>
+                    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a id="userProfileBtn">Profil</a></li>
+                        <li><a href="/wedplanpro/backend/auth/logout.php">Çıkış</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-container">
+        <!-- Stats -->
+        <div class="stats-container w-full my-4">
+            <div class="stat">
+                <div class="stat-title">Görevler</div>
+                <div class="stat-value" id="taskCount">0</div>
+                <div class="stat-desc">Toplam görev sayısı</div>
+            </div>
+            <div class="stat">
+                <div class="stat-title">Bütçe</div>
+                <div class="stat-value" id="totalBudget">$0</div>
+                <div class="stat-desc">Toplam harcama</div>
+            </div>
+            <div class="stat">
+                <div class="stat-title">Davetiyeler</div>
+                <div class="stat-value" id="inviteCount">0</div>
+                <div class="stat-desc">Oluşturulan davetiye</div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs-container mb-4">
+            <a class="tab tab-active" data-tab="tasks">Görevler</a>
+            <a class="tab" data-tab="budget">Bütçe</a>
+            <a class="tab" data-tab="invites">Davetiyeler</a>
+        </div>
+
+        <!-- Content Sections -->
+        <div id="tasksSection" class="section-content">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Görevler</h2>
+                <button class="btn btn-primary" onclick="openAddTaskModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Yeni Görev
+                </button>
+            </div>
+            <div class="table-container">
+                <table class="table-wrapper">
+                    <thead class="table-header">
+                        <tr>
+                            <th>Görev</th>
+                            <th>Tarih</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tasksList">
+                        <!-- Tasks will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="budgetSection" class="section-content hidden">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Bütçe</h2>
+                <button class="btn btn-primary" onclick="openAddBudgetModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Yeni Harcama
+                </button>
+            </div>
+            <div class="table-container">
+                <table class="table-wrapper">
+                    <thead class="table-header">
+                        <tr>
+                            <th>Açıklama</th>
+                            <th>Tutar</th>
+                            <th>Tarih</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="budgetList">
+                        <!-- Budget items will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="invitesSection" class="section-content hidden">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Davetiyeler</h2>
+                <button class="btn btn-primary" onclick="openCreateInviteModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Yeni Davetiye
+                </button>
+            </div>
+            <div class="card-grid" id="invitesList">
+                <!-- Invites will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Add Task Modal -->
+    <dialog id="addTaskModal" class="modal">
+        <form method="dialog" class="modal-box">
+            <h3 class="font-bold text-lg mb-4">Yeni Görev Ekle</h3>
+            <div class="form-group">
+                <label class="form-label">Görev Adı</label>
+                <input type="text" id="taskName" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tarih</label>
+                <input type="date" id="taskDate" class="form-input" required>
+            </div>
+            <div class="modal-action">
+                <button type="button" class="btn" onclick="closeAddTaskModal()">İptal</button>
+                <button type="submit" class="btn btn-primary" onclick="saveTask()">Kaydet</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Add Budget Modal -->
+    <dialog id="addBudgetModal" class="modal">
+        <form method="dialog" class="modal-box">
+            <h3 class="font-bold text-lg mb-4">Yeni Harcama Ekle</h3>
+            <div class="form-group">
+                <label class="form-label">Açıklama</label>
+                <input type="text" id="budgetItem" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tutar</label>
+                <input type="number" id="budgetAmount" class="form-input" required>
+            </div>
+            <div class="modal-action">
+                <button type="button" class="btn" onclick="closeAddBudgetModal()">İptal</button>
+                <button type="submit" class="btn btn-primary" onclick="saveBudget()">Kaydet</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Create Invite Modal -->
+    <dialog id="createInviteModal" class="modal">
+        <form method="dialog" class="modal-box">
+            <h3 class="font-bold text-lg mb-4">Yeni Davetiye Oluştur</h3>
+            <div class="form-group">
+                <label class="form-label">Tema</label>
+                <select id="inviteTheme" class="form-select" required>
+                    <option value="classic">Klasik</option>
+                    <option value="modern">Modern</option>
+                    <option value="vintage">Vintage</option>
+                </select>
+            </div>
+            <div class="modal-action">
+                <button type="button" class="btn" onclick="closeCreateInviteModal()">İptal</button>
+                <button type="submit" class="btn btn-primary" onclick="saveInvite()">Oluştur</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Toast Messages -->
+    <div class="toast toast-top toast-end">
+        <div id="successToast" class="alert alert-success hidden">
+            <span id="successMessage"></span>
+        </div>
+        <div id="errorToast" class="alert alert-error hidden">
+            <span id="errorMessage"></span>
+        </div>
+    </div>
+
+    <script src="./dashboard.js"></script>
+</body>
+
+</html>
