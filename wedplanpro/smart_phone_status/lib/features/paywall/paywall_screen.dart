@@ -31,9 +31,9 @@ class PaywallScreen extends StatelessWidget {
                     ),
                     child: Column(
                       children: const [
-                        SizedBox(height: 6),
+                        SizedBox(height: 8),
                         _OrbIcon(),
-                        SizedBox(height: 22),
+                        SizedBox(height: 20),
                         FeatureRow(
                           icon: Icons.hourglass_bottom,
                           title: 'PHONE AGING METER',
@@ -57,7 +57,7 @@ class PaywallScreen extends StatelessWidget {
                           title: 'TIME CAPSULE TRENDS',
                           subtitle: 'Historical performance data',
                         ),
-                        SizedBox(height: 26),
+                        SizedBox(height: 22),
                         PlanCard(
                           isSelected: true,
                           badge: 'BEST VALUE',
@@ -66,7 +66,7 @@ class PaywallScreen extends StatelessWidget {
                           price: '\$29.99',
                           period: '/ YEAR',
                         ),
-                        SizedBox(height: 14),
+                        SizedBox(height: 12),
                         PlanCard(
                           isSelected: false,
                           title: 'Monthly Access',
@@ -74,7 +74,7 @@ class PaywallScreen extends StatelessWidget {
                           price: '\$4.99',
                           period: '/ MONTH',
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 18),
                         PrimaryCtaButton(label: 'UNLOCK PRO'),
                         SizedBox(height: 18),
                         FooterLinks(),
@@ -120,10 +120,10 @@ class _PaywallHeader extends StatelessWidget {
             onTap: () {},
             radius: 18,
             child: Container(
-              width: 36,
-              height: 36,
+              width: 34,
+              height: 34,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.06),
+                color: Colors.white.withOpacity(0.04),
                 shape: BoxShape.circle,
               ),
               child: const Icon(Icons.close, color: AppColors.textMuted),
@@ -141,30 +141,34 @@ class _OrbIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 72,
-      height: 72,
+      width: 68,
+      height: 68,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: AppColors.neonCyan.withOpacity(0.35),
-          width: 1,
+          color: AppColors.neonCyan.withOpacity(0.28),
+          width: 0.8,
         ),
       ),
       child: Center(
         child: Container(
-          width: 44,
-          height: 44,
+          width: 42,
+          height: 42,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: AppColors.neonCyan.withOpacity(0.08),
+            color: AppColors.neonCyan.withOpacity(0.06),
             boxShadow: [
               BoxShadow(
-                color: AppColors.neonCyan.withOpacity(0.25),
-                blurRadius: 10,
+                color: AppColors.neonCyan.withOpacity(0.18),
+                blurRadius: 8,
               ),
             ],
           ),
-          child: const Icon(Icons.verified, color: AppColors.neonCyan),
+          child: Icon(
+            Icons.verified,
+            color: AppColors.neonCyan.withOpacity(0.9),
+            size: 20,
+          ),
         ),
       ),
     );
@@ -177,7 +181,7 @@ class _DottedDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 14),
+      padding: const EdgeInsets.symmetric(vertical: 12),
       child: CustomPaint(
         painter: _DottedDividerPainter(),
         child: const SizedBox(height: 1, width: double.infinity),
@@ -190,7 +194,7 @@ class _DottedDividerPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.cardBorder.withOpacity(0.7)
+      ..color = AppColors.cardBorder.withOpacity(0.55)
       ..strokeWidth = 1;
     const dashWidth = 4.0;
     const dashSpace = 4.0;

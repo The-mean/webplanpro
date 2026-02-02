@@ -26,7 +26,7 @@ class PlanCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final borderColor = isSelected
         ? AppColors.neonCyan.withOpacity(0.7)
-        : AppColors.cardBorder.withOpacity(0.6);
+        : AppColors.cardBorder.withOpacity(0.45);
     return Stack(
       children: [
         InkWell(
@@ -37,19 +37,19 @@ class PlanCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.card,
               borderRadius: BorderRadius.circular(AppSpacing.radius),
-              border: Border.all(color: borderColor, width: 1),
+              border: Border.all(color: borderColor, width: 0.8),
               boxShadow: isSelected
                   ? [
                       BoxShadow(
-                        color: AppColors.neonCyan.withOpacity(0.25),
-                        blurRadius: 14,
-                        spreadRadius: 1,
+                        color: AppColors.neonCyan.withOpacity(0.18),
+                        blurRadius: 10,
+                        spreadRadius: 0,
                       ),
                     ]
                   : [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        blurRadius: 8,
+                        color: Colors.black.withOpacity(0.18),
+                        blurRadius: 6,
                         offset: const Offset(0, 4),
                       ),
                     ],
@@ -66,13 +66,18 @@ class PlanCard extends StatelessWidget {
                         title,
                         style: AppText.title.copyWith(
                           fontSize: 16,
+                          fontWeight: FontWeight.w600,
                           color: AppColors.textPrimary,
                         ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         subtitle,
-                        style: AppText.bodyMuted.copyWith(fontSize: 12),
+                        style: AppText.bodyMuted.copyWith(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.textMuted.withOpacity(0.75),
+                        ),
                       ),
                     ],
                   ),
@@ -84,6 +89,7 @@ class PlanCard extends StatelessWidget {
                       price,
                       style: AppText.title.copyWith(
                         fontSize: 22,
+                        fontWeight: FontWeight.w600,
                         color: AppColors.textPrimary,
                       ),
                     ),
@@ -92,8 +98,8 @@ class PlanCard extends StatelessWidget {
                       period,
                       style: AppText.hudLabel.copyWith(
                         fontSize: 11,
-                        letterSpacing: 2.2,
-                        color: AppColors.neonCyan,
+                        letterSpacing: 2.1,
+                        color: AppColors.neonCyan.withOpacity(0.85),
                       ),
                     ),
                   ],
@@ -104,17 +110,17 @@ class PlanCard extends StatelessWidget {
         ),
         if (badge != null)
           Positioned(
-            top: -10,
-            right: 18,
+            top: -8,
+            right: 16,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
               decoration: BoxDecoration(
                 color: AppColors.neonCyan,
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.neonCyan.withOpacity(0.4),
-                    blurRadius: 10,
+                    color: AppColors.neonCyan.withOpacity(0.25),
+                    blurRadius: 8,
                   ),
                 ],
               ),
@@ -122,7 +128,7 @@ class PlanCard extends StatelessWidget {
                 badge!,
                 style: AppText.hudLabel.copyWith(
                   fontSize: 10,
-                  letterSpacing: 2,
+                  letterSpacing: 1.8,
                   color: Colors.black,
                 ),
               ),
@@ -146,10 +152,17 @@ class _Selector extends StatelessWidget {
         height: 26,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: AppColors.neonCyan.withOpacity(0.2),
-          border: Border.all(color: AppColors.neonCyan, width: 1),
+          color: AppColors.neonCyan.withOpacity(0.15),
+          border: Border.all(
+            color: AppColors.neonCyan.withOpacity(0.85),
+            width: 1,
+          ),
         ),
-        child: const Icon(Icons.check, size: 16, color: AppColors.neonCyan),
+        child: Icon(
+          Icons.check,
+          size: 14,
+          color: AppColors.neonCyan.withOpacity(0.95),
+        ),
       );
     }
     return Container(
@@ -158,8 +171,8 @@ class _Selector extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: AppColors.textMuted.withOpacity(0.6),
-          width: 1,
+          color: AppColors.textMuted.withOpacity(0.5),
+          width: 0.9,
         ),
       ),
     );

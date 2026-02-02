@@ -25,12 +25,16 @@ class FeatureRow extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: AppColors.neonCyan.withOpacity(0.4),
-              width: 1,
+              color: AppColors.neonCyan.withOpacity(0.28),
+              width: 0.7,
             ),
             color: Colors.white.withOpacity(0.02),
           ),
-          child: Icon(icon, color: AppColors.neonCyan, size: 20),
+          child: Icon(
+            icon,
+            color: AppColors.neonCyan.withOpacity(0.9),
+            size: 20,
+          ),
         ),
         const SizedBox(width: 14),
         Expanded(
@@ -41,8 +45,9 @@ class FeatureRow extends StatelessWidget {
                 title,
                 style: AppText.hudLabel.copyWith(
                   fontSize: 12,
-                  letterSpacing: 2.6,
-                  color: AppColors.neonCyan,
+                  letterSpacing: 2.4,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.neonCyan.withOpacity(0.9),
                 ),
               ),
               const SizedBox(height: 6),
@@ -50,7 +55,8 @@ class FeatureRow extends StatelessWidget {
                 subtitle,
                 style: AppText.bodyMuted.copyWith(
                   fontSize: 12,
-                  color: AppColors.textMuted,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.textMuted.withOpacity(0.75),
                 ),
               ),
             ],

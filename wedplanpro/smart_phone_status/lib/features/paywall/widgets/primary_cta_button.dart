@@ -18,13 +18,13 @@ class PrimaryCtaButton extends StatelessWidget {
         height: 54,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: AppColors.neonCyan,
+          color: AppColors.neonCyan.withOpacity(0.95),
           borderRadius: BorderRadius.circular(AppSpacing.radius),
           boxShadow: [
             BoxShadow(
-              color: AppColors.neonCyan.withOpacity(0.35),
-              blurRadius: 12,
-              spreadRadius: 1,
+              color: AppColors.neonCyan.withOpacity(0.25),
+              blurRadius: 8,
+              spreadRadius: 0,
             ),
           ],
         ),
@@ -38,6 +38,7 @@ class PrimaryCtaButton extends StatelessWidget {
               style: AppText.title.copyWith(
                 fontSize: 16,
                 letterSpacing: 2,
+                fontWeight: FontWeight.w600,
                 color: Colors.black,
               ),
             ),
