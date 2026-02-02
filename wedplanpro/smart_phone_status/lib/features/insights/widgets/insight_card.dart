@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:smart_phone_status/ui/theme/app_colors.dart';
-import 'package:smart_phone_status/ui/theme/app_shadows.dart';
 import 'package:smart_phone_status/ui/theme/app_spacing.dart';
 import 'package:smart_phone_status/ui/theme/app_text.dart';
 
@@ -30,8 +29,17 @@ class InsightCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(AppSpacing.radius),
-        border: Border.all(color: AppColors.cardBorder),
-        boxShadow: AppShadows.softCard,
+        border: Border.all(
+          color: AppColors.cardBorder.withOpacity(0.7),
+          width: 0.8,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.25),
+            blurRadius: 6,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +55,7 @@ class InsightCard extends StatelessWidget {
                   ? [
                       BoxShadow(
                         color: accent.withOpacity(0.4),
-                        blurRadius: 6,
+                        blurRadius: 4,
                       ),
                     ]
                   : null,
@@ -61,8 +69,8 @@ class InsightCard extends StatelessWidget {
                 Text(
                   title,
                   style: AppText.title.copyWith(
-                    fontSize: 15,
-                    letterSpacing: 1.2,
+                    fontSize: 14.5,
+                    letterSpacing: 1.4,
                     color: AppColors.textPrimary,
                   ),
                 ),
@@ -71,7 +79,7 @@ class InsightCard extends StatelessWidget {
                   subtitle,
                   style: AppText.bodyMuted.copyWith(
                     fontSize: 12,
-                    letterSpacing: 1.4,
+                    letterSpacing: 1.3,
                     height: 1.4,
                   ),
                 ),

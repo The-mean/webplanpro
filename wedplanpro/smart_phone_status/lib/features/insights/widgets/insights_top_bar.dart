@@ -24,7 +24,7 @@ class InsightsTopBar extends StatelessWidget {
                 'SYSTEM INSIGHTS // V.4.0',
                 style: AppText.hudLabel.copyWith(
                   fontSize: 13,
-                  letterSpacing: 3.5,
+                  letterSpacing: 3.2,
                   color: AppColors.textPrimary,
                 ),
               ),

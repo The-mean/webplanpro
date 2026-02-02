@@ -14,8 +14,11 @@ class AgingMeterSection extends StatelessWidget {
       children: [
         _SectionHeader(
           title: 'PHONE AGING METER',
-          trailing: const Icon(Icons.history_toggle_off,
-              size: 18, color: AppColors.neonCyan),
+          trailing: const Icon(
+            Icons.history_toggle_off,
+            size: 18,
+            color: AppColors.neonCyan,
+          ),
         ),
         const SizedBox(height: 12),
         const _MeterRow(
@@ -31,15 +34,15 @@ class AgingMeterSection extends StatelessWidget {
           progress: 0.6,
           active: true,
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 10),
         Align(
           alignment: Alignment.centerRight,
           child: Text(
             'OPTIMIZED BY AI CORE',
             style: AppText.hudLabel.copyWith(
-              fontSize: 11,
-              letterSpacing: 2.4,
-              color: AppColors.neonCyan.withOpacity(0.7),
+              fontSize: 10,
+              letterSpacing: 2.2,
+              color: AppColors.neonCyan.withOpacity(0.6),
             ),
           ),
         ),
@@ -61,8 +64,8 @@ class _SectionHeader extends StatelessWidget {
         Text(
           title,
           style: AppText.hudLabel.copyWith(
-            fontSize: 13,
-            letterSpacing: 3,
+            fontSize: 12,
+            letterSpacing: 2.8,
             color: AppColors.neonCyan,
           ),
         ),
@@ -70,7 +73,7 @@ class _SectionHeader extends StatelessWidget {
         Expanded(
           child: Container(
             height: 1,
-            color: AppColors.cardBorder,
+            color: AppColors.cardBorder.withOpacity(0.7),
           ),
         ),
         const SizedBox(width: 12),
@@ -104,8 +107,8 @@ class _MeterRow extends StatelessWidget {
             Text(
               label,
               style: AppText.hudLabel.copyWith(
-                fontSize: 12,
-                letterSpacing: 2.6,
+                fontSize: 11.5,
+                letterSpacing: 2.4,
                 color: AppColors.textMuted,
               ),
             ),
@@ -113,13 +116,13 @@ class _MeterRow extends StatelessWidget {
             Text(
               value,
               style: AppText.title.copyWith(
-                fontSize: 16,
+                fontSize: 14.5,
                 color: valueColor,
               ),
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 8),
         _ThinBar(progress: progress, active: active),
       ],
     );
@@ -148,7 +151,7 @@ class _ThinBarState extends State<_ThinBar>
       vsync: this,
       duration: const Duration(milliseconds: 3600),
     )..repeat(reverse: true);
-    _glow = Tween<double>(begin: 0.2, end: 0.5).animate(
+    _glow = Tween<double>(begin: 0.12, end: 0.28).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
   }
@@ -169,27 +172,27 @@ class _ThinBarState extends State<_ThinBar>
           builder: (context, constraints) {
             final barWidth = constraints.maxWidth;
             return Container(
-              height: 6,
+              height: 4,
               decoration: BoxDecoration(
-                color: AppColors.cardBorder,
+                color: AppColors.textMuted.withOpacity(0.18),
                 borderRadius: BorderRadius.circular(AppSpacing.radius),
               ),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  height: 6,
+                  height: 4,
                   width: barWidth * widget.progress,
                   decoration: BoxDecoration(
                     color: widget.active
-                        ? AppColors.neonCyan
-                        : AppColors.textMuted,
+                        ? AppColors.neonCyan.withOpacity(0.9)
+                        : AppColors.textMuted.withOpacity(0.6),
                     borderRadius: BorderRadius.circular(AppSpacing.radius),
                     boxShadow: widget.active
                         ? [
                             BoxShadow(
                               color: AppColors.neonCyan
                                   .withOpacity(glowOpacity),
-                              blurRadius: 8,
+                              blurRadius: 5,
                               spreadRadius: 0,
                             ),
                           ]

@@ -56,8 +56,8 @@ class _SectionHeader extends StatelessWidget {
         Text(
           title,
           style: AppText.hudLabel.copyWith(
-            fontSize: 13,
-            letterSpacing: 3,
+            fontSize: 12,
+            letterSpacing: 2.8,
             color: AppColors.neonCyan,
           ),
         ),
@@ -65,7 +65,7 @@ class _SectionHeader extends StatelessWidget {
         Expanded(
           child: Container(
             height: 1,
-            color: AppColors.cardBorder,
+            color: AppColors.cardBorder.withOpacity(0.7),
           ),
         ),
         const SizedBox(width: 12),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:smart_phone_status/ui/theme/app_colors.dart';
-import 'package:smart_phone_status/ui/theme/app_shadows.dart';
 import 'package:smart_phone_status/ui/theme/app_spacing.dart';
 import 'package:smart_phone_status/ui/theme/app_text.dart';
 
@@ -15,8 +14,11 @@ class DigitalDnaSection extends StatelessWidget {
       children: [
         _SectionHeader(
           title: 'DIGITAL DNA PROFILE',
-          trailing: const Icon(Icons.fingerprint,
-              size: 18, color: AppColors.neonCyan),
+          trailing: const Icon(
+            Icons.fingerprint,
+            size: 18,
+            color: AppColors.neonCyan,
+          ),
         ),
         const SizedBox(height: 16),
         Row(
@@ -73,8 +75,17 @@ class HudModuleCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.card,
               borderRadius: BorderRadius.circular(AppSpacing.radius),
-              border: Border.all(color: AppColors.cardBorder),
-              boxShadow: AppShadows.softCard,
+              border: Border.all(
+                color: AppColors.neonCyan.withOpacity(0.16),
+                width: 0.7,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.25),
+                  blurRadius: 4,
+                  offset: const Offset(0, 4),
+                ),
+              ],
             ),
           ),
           const _CornerAccents(),
@@ -88,7 +99,7 @@ class HudModuleCard extends StatelessWidget {
                   title,
                   style: AppText.hudLabel.copyWith(
                     fontSize: 11,
-                    letterSpacing: 2.2,
+                    letterSpacing: 2.4,
                     color: AppColors.textMuted,
                   ),
                 ),
@@ -130,9 +141,9 @@ class _CornerPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.neonCyan.withOpacity(0.35)
+      ..color = AppColors.neonCyan.withOpacity(0.22)
       ..strokeWidth = 1;
-    const length = 10.0;
+    const length = 8.0;
 
     // Top-left
     canvas.drawLine(const Offset(0, 0), const Offset(length, 0), paint);
@@ -192,8 +203,8 @@ class _SectionHeader extends StatelessWidget {
         Text(
           title,
           style: AppText.hudLabel.copyWith(
-            fontSize: 13,
-            letterSpacing: 3,
+            fontSize: 12,
+            letterSpacing: 2.8,
             color: AppColors.neonCyan,
           ),
         ),
@@ -201,7 +212,7 @@ class _SectionHeader extends StatelessWidget {
         Expanded(
           child: Container(
             height: 1,
-            color: AppColors.cardBorder,
+            color: AppColors.cardBorder.withOpacity(0.7),
           ),
         ),
         const SizedBox(width: 12),
