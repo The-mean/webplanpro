@@ -23,7 +23,7 @@ class ProtocolPlanCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final borderColor = isSelected
-        ? AppColors.neonCyan.withOpacity(0.8)
+        ? AppColors.neonCyan.withOpacity(0.7)
         : AppColors.cardBorder.withOpacity(0.4);
     return InkWell(
       onTap: () {},
@@ -33,12 +33,12 @@ class ProtocolPlanCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.card,
           borderRadius: BorderRadius.circular(AppSpacing.radius),
-          border: Border.all(color: borderColor, width: 0.9),
+          border: Border.all(color: borderColor, width: 0.8),
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: AppColors.neonCyan.withOpacity(0.2),
-                    blurRadius: 10,
+                    color: AppColors.neonCyan.withOpacity(0.16),
+                    blurRadius: 8,
                     spreadRadius: 0,
                   ),
                 ]
@@ -55,9 +55,9 @@ class ProtocolPlanCard extends StatelessWidget {
                   Text(
                     title,
                     style: AppText.title.copyWith(
-                      fontSize: 16,
-                      letterSpacing: 2,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 15.5,
+                      letterSpacing: 1.9,
+                      fontWeight: FontWeight.w700,
                       color: AppColors.textPrimary,
                     ),
                   ),
@@ -66,9 +66,9 @@ class ProtocolPlanCard extends StatelessWidget {
                     Text(
                       subtitle!,
                       style: AppText.hudLabel.copyWith(
-                        fontSize: 11,
-                        letterSpacing: 2,
-                        color: AppColors.neonCyan.withOpacity(0.7),
+                        fontSize: 10.5,
+                        letterSpacing: 1.9,
+                        color: AppColors.neonCyan.withOpacity(0.65),
                       ),
                     ),
                   ],
@@ -81,8 +81,8 @@ class ProtocolPlanCard extends StatelessWidget {
                 Text(
                   price,
                   style: AppText.title.copyWith(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
+                    fontSize: 19,
+                    fontWeight: FontWeight.w700,
                     color: AppColors.textPrimary,
                   ),
                 ),
@@ -90,9 +90,9 @@ class ProtocolPlanCard extends StatelessWidget {
                 Text(
                   period,
                   style: AppText.hudLabel.copyWith(
-                    fontSize: 11,
-                    letterSpacing: 2.2,
-                    color: AppColors.textMuted.withOpacity(0.7),
+                    fontSize: 10.5,
+                    letterSpacing: 2.1,
+                    color: AppColors.textMuted.withOpacity(0.65),
                   ),
                 ),
               ],
@@ -115,12 +115,12 @@ class _SelectionSquare extends StatelessWidget {
       width: 22,
       height: 22,
       decoration: BoxDecoration(
-        color: isSelected ? AppColors.neonCyan.withOpacity(0.2) : null,
+        color: isSelected ? AppColors.neonCyan.withOpacity(0.16) : null,
         border: Border.all(
           color: isSelected
-              ? AppColors.neonCyan.withOpacity(0.9)
-              : AppColors.textMuted.withOpacity(0.4),
-          width: 1,
+              ? AppColors.neonCyan.withOpacity(0.85)
+              : AppColors.textMuted.withOpacity(0.35),
+          width: 0.9,
         ),
         borderRadius: BorderRadius.circular(4),
       ),

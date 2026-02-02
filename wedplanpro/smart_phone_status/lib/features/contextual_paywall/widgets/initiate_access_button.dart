@@ -24,14 +24,14 @@ class InitiateAccessButton extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppSpacing.radius),
             border: Border.all(
-              color: AppColors.neonCyan.withOpacity(0.7),
-              width: 1,
+              color: AppColors.neonCyan.withOpacity(0.6),
+              width: 0.9,
             ),
             color: Colors.white.withOpacity(0.02),
             boxShadow: [
               BoxShadow(
-                color: AppColors.neonCyan.withOpacity(0.18),
-                blurRadius: 8,
+                color: AppColors.neonCyan.withOpacity(0.14),
+                blurRadius: 6,
               ),
             ],
           ),
@@ -44,8 +44,8 @@ class InitiateAccessButton extends StatelessWidget {
                 label,
                 style: AppText.hudLabel.copyWith(
                   fontSize: 13,
-                  letterSpacing: 4,
-                  fontWeight: FontWeight.w600,
+                  letterSpacing: 3.6,
+                  fontWeight: FontWeight.w700,
                   color: AppColors.neonCyan,
                 ),
               ),
@@ -61,9 +61,9 @@ class _CornerBracketPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.neonCyan.withOpacity(0.6)
+      ..color = AppColors.neonCyan.withOpacity(0.5)
       ..strokeWidth = 1;
-    const corner = 10.0;
+    const corner = 9.0;
 
     canvas.drawLine(
         const Offset(0, 0), const Offset(corner, 0), paint);

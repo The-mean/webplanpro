@@ -17,7 +17,7 @@ class _ContextualGridPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.textMuted.withOpacity(0.08)
+      ..color = AppColors.textMuted.withOpacity(0.045)
       ..strokeWidth = 1;
     const spacing = 34.0;
     for (var x = 0.0; x <= size.width; x += spacing) {

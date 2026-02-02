@@ -79,9 +79,9 @@ class _TopHeader extends StatelessWidget {
               Text(
                 'SYSTEM_AUTH_REQ // v.9.0',
                 style: AppText.hudLabel.copyWith(
-                  fontSize: 11.5,
-                  letterSpacing: 2.6,
-                  color: AppColors.neonCyan.withOpacity(0.7),
+                  fontSize: 11,
+                  letterSpacing: 2.4,
+                  color: AppColors.neonCyan.withOpacity(0.65),
                 ),
               ),
               const Spacer(),
@@ -109,11 +109,11 @@ class _TopHeader extends StatelessWidget {
           Text(
             'AUTHORIZE ADVANCED\nTEMPORAL INTELLIGENCE',
             style: AppText.title.copyWith(
-              fontSize: 22,
+              fontSize: 21,
               height: 1.2,
-              letterSpacing: 1.4,
+              letterSpacing: 1.3,
               color: AppColors.textPrimary,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ],
@@ -137,18 +137,18 @@ class _LockedModulesSection extends StatelessWidget {
             Text(
               'LOCKED MODULES',
               style: AppText.hudLabel.copyWith(
-                fontSize: 12,
-                letterSpacing: 2.6,
-                color: AppColors.neonCyan,
+                fontSize: 11.5,
+                letterSpacing: 2.4,
+                color: AppColors.neonCyan.withOpacity(0.9),
               ),
             ),
             const Spacer(),
             Text(
               '2 BLOCKS DETECTED',
               style: AppText.hudLabel.copyWith(
-                fontSize: 11,
-                letterSpacing: 2.4,
-                color: AppColors.textMuted.withOpacity(0.7),
+                fontSize: 10.5,
+                letterSpacing: 2.2,
+                color: AppColors.textMuted.withOpacity(0.6),
               ),
             ),
           ],
@@ -205,9 +205,9 @@ class _ProtocolHeader extends StatelessWidget {
     return Text(
       'SELECT PROTOCOL',
       style: AppText.hudLabel.copyWith(
-        fontSize: 12,
-        letterSpacing: 2.6,
-        color: AppColors.neonCyan.withOpacity(0.8),
+        fontSize: 11.5,
+        letterSpacing: 2.4,
+        color: AppColors.neonCyan.withOpacity(0.7),
       ),
     );
   }
@@ -219,9 +219,9 @@ class _FooterLinks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = AppText.hudLabel.copyWith(
-      fontSize: 11,
-      letterSpacing: 2.4,
-      color: AppColors.textMuted.withOpacity(0.7),
+      fontSize: 10.5,
+      letterSpacing: 2.2,
+      color: AppColors.textMuted.withOpacity(0.6),
     );
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
